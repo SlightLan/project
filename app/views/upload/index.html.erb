@@ -1,26 +1,5 @@
 <h1>Welcome you gays</h1>
 <h2>This is your projects:</h2>
-<% @projectsInfo.each_with_index do |projectInfo,projectIndex| %>
-	<div>
-		<h3>Project name:<%= projectInfo["name"] %></h3>
-		<h3>Project path:<%= projectInfo["path_with_namespace"] %>
-	</div>>
-<% end %>
-
-<!--%= select_tag :selectedProject, options_for_select(@projectsName)%-->
-
-
-
-<%= form_for :showFiles, url: {:action => "showProjectFiles"} do |s| %>
-	<div>
-		<% @projectsName.each do |s| %>
-	<div>
-		Name:<%= button_to s[0], url_for(action:"showProjectFiles", controller:"upload") %>
-		Id:<%= button_to s[1] %>
-	</div>
-<% end %>
-	</div>
-<% end %>
 
 
 <%= form_for :uploadFile, url: {:action => "uploadFile"} do |f| %>
