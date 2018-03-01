@@ -8,6 +8,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.integer :question_num, null: false, default:0
       t.string :question_list,null:false,default:""
 
+
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at
