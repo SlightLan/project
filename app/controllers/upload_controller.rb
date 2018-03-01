@@ -1,5 +1,6 @@
 class UploadController < ApplicationController
 	def index
+<<<<<<< HEAD
 		# This array save user's projects'name with id
 		#store project's branches
 		#@projectsFileTree = Array.new
@@ -32,6 +33,8 @@ class UploadController < ApplicationController
 		#logger.debug(@projectFileTree)
 
 
+=======
+>>>>>>> d25e94549b58e5e31cae3033878325bfb8337043
 	end
 
 	def uploadFile
