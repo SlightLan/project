@@ -13,9 +13,9 @@
 ActiveRecord::Schema.define(version: 20180228065250) do
 
   create_table "questions", force: :cascade do |t|
-    t.string "title"
-    t.string "content"
-    t.string "Asker"
+    t.string "title", default: "Question title", null: false
+    t.string "content", default: "Question content", null: false
+    t.string "Asker", default: "Question asker", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20180228065250) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.integer "question_num", default: 0, null: false
+    t.string "question_list", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

@@ -1,1 +1,8 @@
 <h1>Here is question page</h1>
+<% @questions.each do |t| %>
+	<tr>
+		<td><%= t.title %></td>
+		<td><%= t.content %></td>
+		<td><%= t.asker %></td>
+	</tr>
+<% end %>
