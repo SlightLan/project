@@ -36,7 +36,7 @@
         <entry file="file://$PROJECT_DIR$/app/views/userpage/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="25" lean-forward="false" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
+              <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -277,12 +277,12 @@
       <option name="presentableId" value="Default" />
       <updated>1519891167335</updated>
       <workItem from="1519891169977" duration="5000" />
-      <workItem from="1519892266538" duration="90000" />
+      <workItem from="1519892266538" duration="855000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95000" />
+    <option name="totallyTimeSpent" value="860000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="292" y="52" width="1857" height="1092" extended-state="6" />
@@ -338,7 +338,7 @@
     <entry file="file://$PROJECT_DIR$/app/views/userpage/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="25" lean-forward="false" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
+          <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
           <folding />
         </state>
       </provider>
