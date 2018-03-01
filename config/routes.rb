@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   get  '/userinfo' , to: 'userpage#show'  , as: 'show_user'
 
   get  '/questions', to: 'question#index' , as: 'index_question'
-  get  '/questions/new', to: 'questions#create' , as: 'create_question'     
+  get  '/questions/new', to: 'question#create' , as: 'create_question'     
 end
