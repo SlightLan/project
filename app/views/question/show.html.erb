@@ -1,0 +1,34 @@
+<p>This is single question</p>
+<table>
+	<tr>
+		<th>Title</th>
+		<th>Content</th>
+		<th>Asker</th>
+	</tr>
+
+	<tr>
+		<td><%= @question.title %></td>
+		<td><%= @question.content %></td>
+		<td><%= @question.asker %></td>
+		<td><%= @question.stars %></td>
+	</tr>
+
+	<p>Comment</p>
+
+	<tr>
+		<th>Commenter</th>
+		<th>Reply</th>
+		<th>Content</th>
+		<th>Starts</th>
+	</tr>
+	
+	<% @comments.each do |t| %>
+		<tr>
+			<td><%= t.commenter %></td>
+			<td><%= t.reply_to %></td>
+			<td><%= t.content %></td>
+			<td><%= t.starts %></td>
+		</tr>
+	<%end%>
+
+</table>

@@ -11,4 +11,7 @@ Rails.application.routes.draw do
 
   get  '/questions', to: 'question#index' , as: 'index_question'
   get  '/questions/new', to: 'question#create' , as: 'create_question'     
+  post '/questions/new(.:format)', to: 'question#new' , as: 'new_question'
+  get  '/questions/show/:id(.:format)', to: 'question#show' , as: 'question'
+
 end

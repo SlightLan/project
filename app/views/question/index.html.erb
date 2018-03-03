@@ -1,8 +1,17 @@
 <h1>Here is question page</h1>
-<% @questions.each do |t| %>
+<table>
 	<tr>
-		<td><%= t.title %></td>
-		<td><%= t.content %></td>
-		<td><%= t.asker %></td>
+		<th>Title</th>
+		<th>Content</th>
+		<th>Asker</th>
 	</tr>
-<% end %>
+
+	<% @questions.each do |t| %>
+		<tr>
+			<td><%= t.title %></td>
+			<td><%= t.content %></td>
+			<td><%= t.asker %></td>
+			<td><%= link_to 'show this question', t %></td>
+		</tr>
+	<% end %>
+</table>
