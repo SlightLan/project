@@ -5,5 +5,9 @@ class QuestionController < ApplicationController
 	end
 
 	def create
-	end	
+		@questions=Question.new(params[:question])
+	end
+	def new
+		render plain: params[:question].inspect
+	end
 end
