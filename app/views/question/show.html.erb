@@ -35,6 +35,7 @@
 			<td><%= t.reply_to %></td>
 			<td><%= t.content %></td>
 			<td><%= t.stars %></td>
+			<td><%= link_to 'Star!' , star_comment_path(:comment => t.id) %></td>
 
 		</tr>
 
@@ -47,7 +48,7 @@
 				<%= f.hidden_field :question_id, :value => params[:id] %>
   				<%= f.hidden_field :reply_to, :value => @reply_to %>
   				<%= f.hidden_field :commenter, :value => @user.email %>
-  				<td><%= link_to 'Star!' , star_comment_path(:question => f.id) %>
+  				
 				<p>
 					<%= f.submit :回复 %>
 				</p>
