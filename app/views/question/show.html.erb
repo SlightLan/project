@@ -1,5 +1,6 @@
 <p>This is single question</p>
-<%= @user.email %>
+<p></p><%= @user.email %></p>
+<%=@user.question_num%>
 
 <table>
 	<tr>
@@ -25,7 +26,7 @@
 		<th>Content</th>
 		<th>Starts</th>
 	</tr>
-	
+
 	<% @comments.each do |t| %>
 	<table>
 		<tr>
@@ -61,7 +62,7 @@
     <%= f.label :content %><br>
     <%= f.text_area :content %>
   </p>
-  
+
   	<%= f.hidden_field :question_id, :value => params[:id] %>
   	<%= f.hidden_field :reply_to, :value => @reply_to %>
   	<%= f.hidden_field :commenter, :value => @user.email %>
