@@ -1,17 +1,60 @@
-<h1>Here is question page</h1>
-<table>
-	<tr>
-		<th>Title</th>
-		<th>Content</th>
-		<th>Asker</th>
-	</tr>
+<head>
+  <style type="text/css">
+    .main {
+      width: 960px;
+      margin: 0 auto;
+    }
 
-	<% @populars.each do |t| %>
-		<tr>
-			<td><%= t.title %></td>
-			<td><%= t.content %></td>
-			<td><%= t.asker %></td>
-			<td><%= link_to 'show this question', t %></td>
-		</tr>
-	<% end %>
+    .question-box {
+      width: 100%;
+      border: 1px solid #efefef;
+      background-color: #efefef;
+      margin-bottom: 30px;
+      box-shadow: 5px 5px 5px #999;
+      padding: 10px;
+    }
+
+    .question-title {
+      font-size: 24px;
+      font-weight: bold;
+      line-height:40px;
+    }
+  </style>
+</head>
+<body>
+<div class="main">
+  <h1>Here is question page</h1>
+  <% @populars.each do |t| %>
+    <div class="question-box">
+      <div class="question-asker">
+        提问者：
+        <%= t.asker %>
+      </div>
+      <div class="question-title">
+        <%= t.title %>
+      </div>
+      <div class="question-content">
+        <%= t.content %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<!--
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Content</th>
+    <th>Asker</th>
+  </tr>
+
+  <% @populars.each do |t| %>
+    <tr>
+      <td><%= t.title %></td>
+      <td><%= t.content %></td>
+      <td><%= t.asker %></td>
+      <td><%= link_to 'show this question', t %></td>
+    </tr>
+  <% end %>
 </table>
+-->
+</body>
