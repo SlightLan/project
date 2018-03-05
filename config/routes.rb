@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   get  '/questions/new', to: 'question#create' , as: 'create_question'     
   post '/questions/new(.:format)', to: 'question#new' , as: 'new_question'
   get  '/questions/show/:id(.:format)', to: 'question#show' , as: 'question'
-
+  post '/questions/show/:id(.:format)', to: 'comment#new' , as: 'new_comment'
 end

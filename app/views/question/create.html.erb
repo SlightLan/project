@@ -1,4 +1,5 @@
 <h1>You can ask here</h1>
+<% @user=current_user %>
 <%= form_for :question do |f| %>
   <p>
     <%= f.label :title %><br>
@@ -10,10 +11,7 @@
     <%= f.text_area :content %>
   </p>
 
-   <p>
-    <%= f.label :asker %><br>
-    <%= f.text_area :asker %>
-  </p>
+  <%= f.hidden_field :asker, :value => @user.email %>
 
   <p>
     <%= f.submit :发布%>

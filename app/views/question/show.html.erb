@@ -1,4 +1,6 @@
 <p>This is single question</p>
+<%= @user.email %>
+
 <table>
 	<tr>
 		<th>Title</th>
@@ -13,7 +15,9 @@
 		<td><%= @question.stars %></td>
 	</tr>
 
-	<p>Comment</p>
+	<tr>
+		<td><strong>Comment</strong></td>
+	</tr>
 
 	<tr>
 		<th>Commenter</th>
@@ -23,12 +27,47 @@
 	</tr>
 	
 	<% @comments.each do |t| %>
+	<table>
 		<tr>
 			<td><%= t.commenter %></td>
 			<td><%= t.reply_to %></td>
 			<td><%= t.content %></td>
-			<td><%= t.starts %></td>
+			<td><%= t.stars %></td>
 		</tr>
+
+		<tr>
+			<%= form_for :comment do |f| %>
+				<p>
+					<%= f.label :reply %>
+					<%= f.text_area :content %>
+				</p>
+				<%= f.hidden_field :question_id, :value => params[:id] %>
+  				<%= f.hidden_field :reply_to, :value => @reply_to %>
+  				<%= f.hidden_field :commenter, :value => @user.email %>
+				<p>
+					<%= f.submit :回复 %>
+				</p>
+			<% end %>
+		</tr>
+
 	<%end%>
+	</table>
 
 </table>
+
+
+<%= form_for :comment do |f| %>
+  <p>
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </p>
+  
+  	<%= f.hidden_field :question_id, :value => params[:id] %>
+  	<%= f.hidden_field :reply_to, :value => @reply_to %>
+  	<%= f.hidden_field :commenter, :value => @user.email %>
+
+
+  <p>
+    <%= f.submit :发布%>
+  </p>
+<% end %>
