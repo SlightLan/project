@@ -4,9 +4,19 @@
       width: 960px;
       margin: 0 auto;
     }
-
+    .header{
+      display:flex;
+      justify-content: space-between;
+      background-color:#0099FF;
+      line-height: 40px;
+      margin-bottom: 40px;
+    }
+    .h-box{
+      padding:0 20px;
+    }
     .input-width-max > input {
       width: 100%;
+      background-color:#efefef;
     }
 
     .textarea-width-max > textarea {
@@ -15,6 +25,7 @@
 
     .textarea-height-400 > textarea {
       height: 400px;
+      background-color: #efefef;
     }
 
     .submit-button > input {
@@ -41,18 +52,18 @@
   </style>
 </head>
 <body>
-
-<p>
+<div class="main">
+<div class="header">
+<div class="h-box">
   <strong>The current user is:</strong>
   <%= link_to @user.email , show_user_path %>
+  </div>
+  <div class="h-box">
   <%= link_to "Log out" , destroy_user_session_path, :method => :delete %>
-</p>
-
-<div class="header">
-
+</div>
 </div>
 <div class="section">
-  <div class="main">
+  
     <h1 class="text-center font-bold">写下你的问题</h1>
     <p class="text-center f-22">描述精确的问题更容易得到解答</p>
     <% @user = current_user %>

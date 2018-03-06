@@ -1,15 +1,53 @@
-<p>
-  <strong>The current user is:</strong>
-  <%= link_to @user.email , show_user_path %>
-  <%= link_to "Log out" , destroy_user_session_path, :method => :delete %>
-</p>
+<head>
+	<style type="text/css">
+		.main{
+			width:960px;
+			margin:0 auto;
+		}
+		.header{
+			display:flex;
+			justify-content: space-between;
+			background-color:#0099FF;
+			line-height: 40px;
+			margin-bottom: 40px;
+		}
+		.h-box{
+			padding:0 20px;
+		}
+		.section{
+			display:flex;
+			justify-content: space-around;
+		}
+		.flex1{
+			flex:1;
+			text-align: center;
+			line-height:150px;
+			border:5px solid #fff;
+			background-color: #eee;
+			border-radius: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<div class="header">
+			<div class="h-box">
+  				<strong>The current user is:</strong>
+  					<%= link_to @user.email , show_user_path %>
+  			</div>
+  			<div class="h-box">
+ 				<%= link_to "Log out" , destroy_user_session_path, :method => :delete %>
+			</div>
+		</div>
 
-<p>
-	<%= link_to "This is the question list" , index_question_path %>
-</p>
+		<div class="section">
+			<div class="flex1">
+				<%= link_to "This is the question list" , index_question_path %>
+			</div>
 
-<p>
-	<%= link_to "This is the ask page" , create_question_path %>
-</p>
-
-
+			<div class="flex1">
+				<%= link_to "This is the ask page" , create_question_path %>
+			</div>
+		</div>
+	</div>
+</body>

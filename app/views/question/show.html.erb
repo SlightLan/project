@@ -116,17 +116,17 @@
 				</button>
 			</div>
 			<div class="reee">
-			<%= form_for :comment do |f| %>
-				<div class="re-content">
-					<%= f.text_area :content %>
-				</div>
-				<%= f.hidden_field :question_id, :value => params[:id] %>
-  				<%= f.hidden_field :reply_to, :value => t.commenter %>
-  				<%= f.hidden_field :commenter, :value => @user.email %>
-				<div class="comment-msg">
-					<%= f.submit :回复 %>
-				</div>
-			<% end %>
+				<%= form_for :comment do |f| %>
+					<div class="re-content">
+						<%= f.text_area :content %>
+					</div>
+					<%= f.hidden_field :question_id, :value => params[:id] %>
+	  				<%= f.hidden_field :reply_to, :value => t.commenter %>
+	  				<%= f.hidden_field :commenter, :value => @user.email %>
+					<div class="comment-msg">
+						<%= f.submit :回复 %>
+					</div>
+				<% end %>
 			</div>
 		</div>
 	<% end %>
@@ -155,7 +155,7 @@
 		<th>Commenter</th>
 		<th>Reply</th>
 		<th>Content</th>
-		<th>Stars</th>
+		<th>Starts</th>
 	</tr>
 
 	<% @comments.each do |t| %>
@@ -178,7 +178,7 @@
 				<%= f.hidden_field :question_id, :value => params[:id] %>
   				<%= f.hidden_field :reply_to, :value => t.commenter %>
   				<%= f.hidden_field :commenter, :value => @user.email %>
-
+  				
 				<p>
 					<%= f.submit :回复 %>
 				</p>
@@ -218,10 +218,14 @@
 <script type="text/javascript">
 	var rebox = document.getElementsByClassName("reee")
 	var btns = document.getElementsByClassName("buttons")
-	function ree(e){
-		console.log(e);
-
-		rebox.style.display='block';
+	var showshow = function(i){
+		btns[i].onclick = function(){
+			console.log(i);
+			rebox[i].style.display = "block";
+		}
+	}
+	for(var i=0;i<btns.length;i++){
+		showshow(i);
 	}
 </script>
 </body>
