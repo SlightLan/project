@@ -12,6 +12,7 @@
       margin-bottom: 30px;
       box-shadow: 5px 5px 5px #999;
       padding: 10px;
+      cursor: pointer;
     }
 
     .question-title {
@@ -31,15 +32,18 @@
         <%= t.asker %>
       </div>
       <div class="question-title">
-        <%= t.title %>
+        <!-- <%= t.title %> -->
+        <%= link_to t.title, t %>
       </div>
       <div class="question-content">
         <%= t.content %>
       </div>
+      <!-- <%= link_to 'show this question', t %> -->
     </div>
+
   <% end %>
 </div>
-<!--
+
 <table>
   <tr>
     <th>Title</th>
@@ -56,5 +60,6 @@
     </tr>
   <% end %>
 </table>
--->
+
 </body>
+
