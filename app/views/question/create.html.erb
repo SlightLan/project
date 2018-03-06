@@ -41,6 +41,13 @@
   </style>
 </head>
 <body>
+
+<p>
+  <strong>The current user is:</strong>
+  <%= link_to @user.email , show_user_path %>
+  <%= link_to "Log out" , destroy_user_session_path, :method => :delete %>
+</p>
+
 <div class="header">
 
 </div>
@@ -67,5 +74,8 @@
     <% end %>
   </div>
 </div>
+
+
+
 </body>
 

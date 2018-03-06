@@ -1,8 +1,9 @@
 class QuestionController < ApplicationController
 	before_action :authenticate_user!
 	def index
+		@user = current_user
 		@questions= Question.all
-		@populars= Question.all.order(:stars)
+		@populars= Question.limit(5).all.order(stars: :desc)
 	end
 
 	def show
@@ -15,6 +16,7 @@ class QuestionController < ApplicationController
 	end
 
 	def create
+		@user=current_user
 	end
 
 	def new

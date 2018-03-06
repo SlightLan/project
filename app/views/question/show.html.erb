@@ -1,7 +1,137 @@
-<p>This is single question</p>
-<p><%= @user.email %></p>
-<p><%= @user.question_num%></p>
+<head>
+	<style type="text/css">
+		.main{
+			width:960px;
+			margin:0 auto;
+		}
+		.header{
+			display:flex;
+			justify-content: space-between;
+			background-color:#0099FF;
+			line-height: 40px;
+			margin-bottom: 40px;
+		}
+		.h-box{
+			padding:0 20px;
+		}
+		.top{
+			display: flex;
+			justify-content: space-between;
+		}
+		.title{
+			font-size:22px;
+			font-weight: bold;
+			margin-bottom: 40px;
+		}
+		.right{
+			text-align: right;
+			margin-bottom: 40px;
+		}
+		.comment-title{
+			font-size: 20px;
+			font-weight:bold;
+			margin-bottom:10px;
+			padding-left: 20px;
+		}
+		.comment-area>textarea{
+			width:960px;
+			height:60px;
+			background-color: #efefef;
+		}
+		.comments-box{
+			background-color: #eee;
+			padding:20px;
+			margin-bottom: 20px;
+		}
+		.comment-msg{
+			text-align: right;
+			margin-top:10px;
+		}
+		.reee{
+			display:none;
+		}
+		.re-content>textarea{
+			width:920px;
+		}
+	</style>
+</head>
+<body>
+<div class="main">
+<div class="header">
+<div class="h-box">
+  <strong>The current user is:</strong>
+  <%= link_to @user.email , show_user_path %>
+  </div>
+  <div class="h-box">
+  <%= link_to "Log out" , destroy_user_session_path, :method => :delete %>
+</div>
+</div>
+<div>
 
+
+	<div class="top">
+		<div class="title h-box">
+			<%= @question.title %>
+		</div>
+		<div class="asker h-box">
+			<%= @question.asker %>
+		</div>
+	</div>
+	<div class="content">
+		<%= @question.content %>
+	</div>
+	<div class="right">
+		<%= @question.stars %>
+		&nbsp;&nbsp;&nbsp;
+		<%= link_to 'Star!' , star_question_path(:question => @question.id) %>
+	</div>
+
+	<%= form_for :comment do |f| %>
+		<div class="comment-title">
+			我来回答
+		</div>
+		<div class="comment-area">
+			<%= f.text_area :content %>
+		</div>
+		<%= f.hidden_field :question_id, :value => params[:id] %>
+  		<%= f.hidden_field :reply_to, :value => @reply_to %>
+  		<%= f.hidden_field :commenter, :value => @user.email %>
+		<div class="right">
+			<%= f.submit :发布%>
+		</div>
+	<% end %>
+
+	<% @comments.each do |t| %>
+		<div class="comments-box">
+			<div>
+				<%= t.content %>
+			</div>
+			<div class="comment-msg">
+				<%= t.commenter %>&nbsp;&nbsp;&nbsp;
+				<%= t.reply_to %>&nbsp;&nbsp;&nbsp;
+				<%= t.stars %>&nbsp;&nbsp;&nbsp;
+				<%= link_to 'Star!' , star_comment_path(:comment => t.id) %>
+				<button class="buttons" onclick="ree(this)">
+					回复
+				</button>
+			</div>
+			<div class="reee">
+			<%= form_for :comment do |f| %>
+				<div class="re-content">
+					<%= f.text_area :content %>
+				</div>
+				<%= f.hidden_field :question_id, :value => params[:id] %>
+  				<%= f.hidden_field :reply_to, :value => t.commenter %>
+  				<%= f.hidden_field :commenter, :value => @user.email %>
+				<div class="comment-msg">
+					<%= f.submit :回复 %>
+				</div>
+			<% end %>
+			</div>
+		</div>
+	<% end %>
+</div>
+<!--
 <table>
 	<tr>
 		<th>Title</th>
@@ -46,7 +176,7 @@
 					<%= f.text_area :content %>
 				</p>
 				<%= f.hidden_field :question_id, :value => params[:id] %>
-  				<%= f.hidden_field :reply_to, :value => @reply_to %>
+  				<%= f.hidden_field :reply_to, :value => t.commenter %>
   				<%= f.hidden_field :commenter, :value => @user.email %>
 
 				<p>
@@ -75,4 +205,23 @@
   <p>
     <%= f.submit :发布%>
   </p>
+
+
+  <p>
+	<%= link_to "Log out" , destroy_user_session_path, :method => :delete %>
+</p>
+
+
 <% end %>
+-->
+</div>
+<script type="text/javascript">
+	var rebox = document.getElementsByClassName("reee")
+	var btns = document.getElementsByClassName("buttons")
+	function ree(e){
+		console.log(e);
+
+		rebox.style.display='block';
+	}
+</script>
+</body>
