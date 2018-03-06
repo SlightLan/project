@@ -25,7 +25,7 @@
 		<th>Commenter</th>
 		<th>Reply</th>
 		<th>Content</th>
-		<th>Starts</th>
+		<th>Stars</th>
 	</tr>
 
 	<% @comments.each do |t| %>
@@ -48,7 +48,7 @@
 				<%= f.hidden_field :question_id, :value => params[:id] %>
   				<%= f.hidden_field :reply_to, :value => @reply_to %>
   				<%= f.hidden_field :commenter, :value => @user.email %>
-  				
+
 				<p>
 					<%= f.submit :回复 %>
 				</p>
