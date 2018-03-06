@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get  '/mainpage' , to: 'mainpage#index' , as: 'index_mainpage'
 
   get  '/userinfo' , to: 'userpage#show'  , as: 'show_user'
+  get  '/userinfo/info' , to: 'userpage#info' , as: 'info_user'
 
   get  '/questions', to: 'question#index' , as: 'index_question'
   get  '/questions/new', to: 'question#create' , as: 'create_question'     
