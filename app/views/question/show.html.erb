@@ -1,7 +1,66 @@
-<p>This is single question</p>
-<p><%= @user.email %></p>
-<p><%= @user.question_num%></p>
-
+<head>
+	<style type="text/css">
+		.main{
+			width:960px;
+			margin:0 auto;
+		}
+		.header{
+			display:flex;
+			justify-content: space-between;
+			background-color:#0099FF;
+			line-height: 40px;
+			margin-bottom: 40px;
+		}
+		.h-box{
+			padding:0 20px;
+		}
+		.top{
+			display: flex;
+			justify-content: space-between;
+		}
+		.title{
+			font-size:22px;
+			font-weight: bold;
+			margin-bottom: 40px;
+		}
+		.right{
+			text-align: right;
+			margin-bottom: 40px;
+		}
+	</style>
+</head>
+<body>
+<div class="main">
+<div class="header">
+<div class="h-box">
+  <strong>The current user is:</strong>
+  <%= link_to @user.email , show_user_path %>
+  </div>
+  <div class="h-box">
+  <%= link_to "Log out" , destroy_user_session_path, :method => :delete %>
+</div>
+</div>
+<div>
+	<div class="top">
+		<div class="title h-box">
+			<%= @question.title %>
+		</div>
+		<div class="asker h-box">
+			<%= @question.asker %>
+		</div>
+	</div>
+	<div class="content">
+		<%= @question.content %>
+	</div>
+	<div class="right">
+		<%= @question.stars %>
+		&nbsp;&nbsp;&nbsp;
+		<%= link_to 'Star!' , star_question_path(:question => @question.id) %>
+	</div>
+	<div class="comment-">
+		Comment
+	</div>
+</div>
 <table>
 	<tr>
 		<th>Title</th>
@@ -46,7 +105,7 @@
 					<%= f.text_area :content %>
 				</p>
 				<%= f.hidden_field :question_id, :value => params[:id] %>
-  				<%= f.hidden_field :reply_to, :value => @reply_to %>
+  				<%= f.hidden_field :reply_to, :value => t.commenter %>
   				<%= f.hidden_field :commenter, :value => @user.email %>
   				
 				<p>
@@ -75,4 +134,13 @@
   <p>
     <%= f.submit :发布%>
   </p>
+
+
+  <p>
+	<%= link_to "Log out" , destroy_user_session_path, :method => :delete %>
+</p>
+
+
 <% end %>
+</div>
+</body>

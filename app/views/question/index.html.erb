@@ -5,39 +5,54 @@
       margin: 0 auto;
     }
 
-    .question-box {
+    .popular-box {
       width: 100%;
       border: 1px solid #efefef;
       background-color: #efefef;
-      margin-bottom: 30px;
+      margin-bottom: 5px;
       box-shadow: 5px 5px 5px #999;
-      padding: 10px;
+      padding-left: 50px;
       cursor: pointer;
     }
 
-    .question-title {
+    .popular-title {
       font-size: 24px;
       font-weight: bold;
       line-height:40px;
     }
+
+    .popular-asker {
+      padding-left: 30px;
+    }
   </style>
 </head>
 <body>
+
+
+<p>
+  <strong>The current user is:</strong>
+  <%= link_to @user.email , show_user_path %>
+  <%= link_to "Log out" , destroy_user_session_path, :method => :delete %>
+</p>
+
 <div class="main">
   <h1>Here is question page</h1>
   <% @populars.each do |t| %>
-    <div class="question-box">
-      <div class="question-asker">
-        提问者：
-        <%= t.asker %>
-      </div>
-      <div class="question-title">
+    <div class="popular-box">
+      
+      <div class="popular-title">
         <!-- <%= t.title %> -->
         <%= link_to t.title, t %>
       </div>
-      <div class="question-content">
-        <%= t.content %>
+
+      <div class="popular-asker">
+        提问者：
+        <%= t.asker %>
+        &nbsp;
+        赞:
+        <%= t.stars %>
       </div>
+
       <!-- <%= link_to 'show this question', t %> -->
     </div>
 
@@ -51,7 +66,7 @@
     <th>Asker</th>
   </tr>
 
-  <% @populars.each do |t| %>
+  <% @questions.each do |t| %>
     <tr>
       <td><%= t.title %></td>
       <td><%= t.content %></td>
@@ -60,6 +75,10 @@
     </tr>
   <% end %>
 </table>
+
+
+
+
 
 </body>
 

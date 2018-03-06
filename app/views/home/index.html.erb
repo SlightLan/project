@@ -1,9 +1,7 @@
 <p>
   <strong>The current user is:</strong>
-  <%= @user.email %>
-</p>
-<p>
-	<%= link_to "This is the mainpage" , index_mainpage_path %>
+  <%= link_to @user.email , show_user_path %>
+  <%= link_to "Log out" , destroy_user_session_path, :method => :delete %>
 </p>
 
 <p>
@@ -14,10 +12,4 @@
 	<%= link_to "This is the ask page" , create_question_path %>
 </p>
 
-<p>
-	<%= link_to "This is user info page" , show_user_path %>
-</p>
-
-<p>
-	<%= link_to "Log out" , destroy_user_session_path, :method => :delete %>
 
