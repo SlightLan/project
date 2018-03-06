@@ -1,7 +1,11 @@
 class StarController < ApplicationController
 	def star_question
+		@user=current_user
 		@question=Question.find_by(:id => params[:question])
-		@question.stars += 1
+		if not @question.stars_list.include? @user.email
+			@question.stars_list.insert(-1," "+@user.email)
+			@question.stars += 1
+		end
 		@question.save
 		redirect_to @question
 	end

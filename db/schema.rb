@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20180303060831) do
     t.string "content", default: "Question content", null: false
     t.string "asker", default: "Question asker", null: false
     t.integer "stars", default: 0, null: false
+    t.string "stars_list", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

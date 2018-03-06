@@ -5,6 +5,7 @@ class CreateQuestions < ActiveRecord::Migration[5.1]
       t.string  :content,  null: false,   default: "Question content"
       t.string  :asker,    null: false,   default: "Question asker"
       t.integer :stars,    null: false,   default: 0
+      t.string  :stars_list,null:false,   default:""
 
 
       t.timestamps

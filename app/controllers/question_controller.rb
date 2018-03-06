@@ -9,9 +9,8 @@ class QuestionController < ApplicationController
 	def show
 		@reply_to
 		@user=current_user
-		string ss=@user.email
-		#@question=Question.find(params[:id])
-		@question=Question.find(all,:conditions => [asker = ss])
+		@question=Question.find(params[:id])
+		#@question=Question.find(all,:conditions => [asker = ss])
 		@comments=Comment.where(question_id: params[:id])
 	end
 
