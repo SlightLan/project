@@ -1,1 +1,14 @@
-<h1>Here is user information page!!!!shaji</h1>
+<p><%= @user.email %></p>
+
+<p><%= link_to "修改个人信息", info_user_path %>
+
+<p><%= @questions.count %> </p>
+<% @questions.each do |t| %>
+  <p><%= link_to t.title , t%></p>
+<% end %>
+
+
+<p><%= @comments.count %></p>
+<% @comments.each do |t| %>
+  <p><%= link_to t.content , question_path(:id => t.question_id)%></p>
+<% end %>
