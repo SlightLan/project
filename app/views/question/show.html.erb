@@ -7,7 +7,7 @@
 		.header{
 			display:flex;
 			justify-content: space-between;
-			background-color:#0099FF;
+			background-color:#66CCFF;
 			line-height: 40px;
 			margin-bottom: 40px;
 		}
@@ -57,15 +57,22 @@
 </head>
 <body>
 <div class="main">
+
 <div class="header">
-<div class="h-box">
-  <strong>The current user is:</strong>
-  <%= link_to @user.email , show_user_path %>
-  </div>
-  <div class="h-box">
-  <%= link_to "Log out" , destroy_user_session_path, :method => :delete %>
+	<div class="h-box">
+	    <strong>
+	      <%= link_to '首页' , root_path %>
+	    </strong>
+	  </div>
+	<div class="h-box">
+	  <strong>The current user is:</strong>
+	  <%= link_to @user.email , show_user_path %>
+	</div>
+  	<div class="h-box">
+  		<%= link_to "Log out" , destroy_user_session_path, :method => :delete %>
+	</div>
 </div>
-</div>
+
 <div>
 
 
