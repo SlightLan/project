@@ -14,7 +14,11 @@
     .h-box{
       padding:0 20px;
     }
-  }
+    .box{
+      background-color: #eee;
+      padding:20px;
+      margin-bottom: 20px;
+    }
   </style>
 </head>
 
@@ -42,14 +46,18 @@
 
 	<p>You have asked: <%= @questions.count %> questions already!</p>
 	<p>Here are your questions:</p>
-	<% @questions.each do |t| %>
-	  	<p><%= link_to t.title , t%></p>
-	<% end %>
+	    <% @questions.each do |t| %>
+    <div class="box">
+	  	  <p><%= link_to t.title , t%></p>
+    </div>
+	    <% end %>
 
 	<p>You have commented: <%= @comments.count %> comments already!</p>
 	<p>Here are your comments:</p>
 	<% @comments.each do |t| %>
-		<p><%= link_to t.content , question_path(:id => t.question_id)%></p>
+    <div class="box">
+		  <p><%= link_to t.content , question_path(:id => t.question_id)%></p>
+    </div>
 	<% end %>
 
 </div>
