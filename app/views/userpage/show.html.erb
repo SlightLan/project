@@ -19,6 +19,11 @@
       padding:20px;
       margin-bottom: 20px;
     }
+      .body{
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+      }
   </style>
 </head>
 
@@ -42,7 +47,7 @@
 	</div>
 
 
-
+<div class="body">
 
 	<p>You have asked: <%= @questions.count %> questions already!</p>
 	<p>Here are your questions:</p>
@@ -59,5 +64,6 @@
 		  <p><%= link_to t.content , question_path(:id => t.question_id)%></p>
     </div>
 	<% end %>
+</div>
 
 </div>
