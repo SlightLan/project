@@ -38,20 +38,18 @@
 	</div>
 
 
-	<p><%= @user.email %></p>
 
-	<p><%= link_to "修改个人信息", info_user_path %>
 
-	<p><%= @questions.count %> </p>
-	
+	<p>You have asked: <%= @questions.count %> questions already!</p>
+	<p>Here are your questions:</p>
 	<% @questions.each do |t| %>
-	  <p><%= link_to t.title , t%></p>
+	  	<p><%= link_to t.title , t%></p>
 	<% end %>
 
-	<p><%= @comments.count %></p>
-	
+	<p>You have commented: <%= @comments.count %> comments already!</p>
+	<p>Here are your comments:</p>
 	<% @comments.each do |t| %>
-	<p><%= link_to t.content , question_path(:id => t.question_id)%></p>
+		<p><%= link_to t.content , question_path(:id => t.question_id)%></p>
 	<% end %>
 
 </div>
