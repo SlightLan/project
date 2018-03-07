@@ -19,16 +19,11 @@
       padding:20px;
       margin-bottom: 20px;
     }
-    .questions{
-      float:left;
-      width: 49%;
-      border: 1px;
-    }
-    .comments{
-      float:right;
-      width: 49%;
-      border: 1px;
-    }
+      .body{
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+      }
   </style>
 </head>
 
@@ -52,30 +47,26 @@
 	</div>
 
 
+<p>This is <strong><%= @user_by_email.email %></strong> 's information page: </p>
 <div class="body">
-
-  <div class="questions">
-  	<p>You have asked: <strong><%= @questions.count %></strong> questions already!</p>
-  	<p>Here are your questions:</p>
-  	<% @questions.each do |t| %>
+  <div>
+      <p>He/She has asked: <strong><%= @questions.count %></strong> questions already!</p>
+	    <p>Here are his/her questions:</p>
+	    <% @questions.each do |t| %>
         <div class="box">
-  	  	  <p><%= link_to t.title , t%></p>
+	  	    <p><%= link_to t.title , t%></p>
         </div>
-	  <% end %>
+	    <% end %>
   </div>
 
-
-  <div class="comments">
-	  <p>You have commented: <strong><%= @comments.count %></strong> comments already!</p>
-	  <p>Here are your comments:</p>
+  <div>
+	  <p>He/She has commented: <strong><%= @comments.count %></strong> comments already!</p>
+	  <p>Here are his/her comments:</p>
 	  <% @comments.each do |t| %>
       <div class="box">
 		    <p><%= link_to t.content , question_path(:id => t.question_id)%></p>
       </div>
 	  <% end %>
   </div>
-
-
 </div>
-
 </div>

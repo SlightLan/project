@@ -81,7 +81,7 @@
 			<%= @question.title %>
 		</div>
 		<div class="asker h-box">
-			提问者:<%= @question.asker %>
+			<%= link_to "提问者:#{@question.asker}" , show_another_user_path(:email => @question.asker) %>
 		</div>
 	</div>
 	<div class="content">

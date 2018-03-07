@@ -7,8 +7,9 @@ Rails.application.routes.draw do
  
   get  '/mainpage' , to: 'mainpage#index' , as: 'index_mainpage'
 
+  get  '/userinfo/:email' , to: 'userpage#show_another'  , as: 'show_another_user'
   get  '/userinfo' , to: 'userpage#show'  , as: 'show_user'
-  get  '/userinfo/info' , to: 'userpage#info' , as: 'info_user'
+  get  '/userinfo/info/:id' , to: 'userpage#info' , as: 'info_user'
 
   get  '/questions', to: 'question#index' , as: 'index_question'
   get  '/questions/new', to: 'question#create' , as: 'create_question'     
@@ -18,4 +19,5 @@ Rails.application.routes.draw do
 
   get '/star/question/:id', to: 'star#star_question' , as: 'star_question'
   get '/star/comment/:id' , to: 'star#star_comment'  , as: 'star_comment'
+
 end
