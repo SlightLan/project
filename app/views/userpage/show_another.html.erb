@@ -19,15 +19,22 @@
       padding:20px;
       margin-bottom: 20px;
     }
-      .body{
-        -webkit-column-count: 2;
-        -moz-column-count: 2;
-        column-count: 2;
-      }
+    .questions{
+      float:left;
+      width: 49%;
+      border: 1px;
+      padding: 10px;
+    }
+    .comments{
+      float:right;
+      width: 49%;
+      border: 1px;
+      padding: 10px;
+    }
   </style>
 </head>
 
-
+<body>
 <div class="main">
 
 	<div class="header">
@@ -48,8 +55,8 @@
 
 
 <p>This is <strong><%= @user_by_email.email %></strong> 's information page: </p>
-<div class="body">
-  <div>
+<div>
+  <div  class="questions">
       <p>He/She has asked: <strong><%= @questions.count %></strong> questions already!</p>
 	    <p>Here are his/her questions:</p>
 	    <% @questions.each do |t| %>
@@ -59,7 +66,7 @@
 	    <% end %>
   </div>
 
-  <div>
+  <div class="comments">
 	  <p>He/She has commented: <strong><%= @comments.count %></strong> comments already!</p>
 	  <p>Here are his/her comments:</p>
 	  <% @comments.each do |t| %>
@@ -70,3 +77,4 @@
   </div>
 </div>
 </div>
+</body>
