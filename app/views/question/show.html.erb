@@ -74,14 +74,14 @@
 			<%= @question.title %>
 		</div>
 		<div class="asker h-box">
-			<%= @question.asker %>
+			提问者:<%= @question.asker %>
 		</div>
 	</div>
 	<div class="content">
 		<%= @question.content %>
 	</div>
 	<div class="right">
-		<%= @question.stars %>
+		☆:<%= @question.stars %>
 		&nbsp;&nbsp;&nbsp;
 		<%= link_to 'Star!' , star_question_path(:question => @question.id) %>
 	</div>
@@ -107,9 +107,12 @@
 				<%= t.content %>
 			</div>
 			<div class="comment-msg">
-				<%= t.commenter %>&nbsp;&nbsp;&nbsp;
+				发表者:<%= t.commenter %>&nbsp;&nbsp;&nbsp;
+				<% if t.reply_to != '' %>
+					回复:
+				<% end %>
 				<%= t.reply_to %>&nbsp;&nbsp;&nbsp;
-				<%= t.stars %>&nbsp;&nbsp;&nbsp;
+				☆:<%= t.stars %>&nbsp;&nbsp;&nbsp;
 				<%= link_to 'Star!' , star_comment_path(:comment => t.id) %>
 				<button class="buttons" onclick="ree(this)">
 					回复
