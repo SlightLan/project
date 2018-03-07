@@ -25,11 +25,17 @@
       border: 1px;
       padding: 10px;
     }
+    .question-stars{
+      float:right;
+    }
     .comments{
       float:right;
       width: 49%;
       border: 1px;
       padding: 10px;
+    }
+    .comment-stars{
+      float:right;
     }
   </style>
 </head>
@@ -61,7 +67,10 @@
   	<p>Here are your questions:</p>
   	<% @questions.each do |t| %>
         <div class="box">
-  	  	  <p><%= link_to t.title , t%></p>
+  	  	  <%= link_to t.title , t%>
+            <div class="question-stars" >
+              ☆:<%= t.stars %>
+            </div>
         </div>
 	  <% end %>
   </div>
@@ -72,7 +81,10 @@
 	  <p>Here are your comments:</p>
 	  <% @comments.each do |t| %>
       <div class="box">
-		    <p><%= link_to t.content , question_path(:id => t.question_id)%></p>
+		    <%= link_to t.content , question_path(:id => t.question_id) %>
+        <div class="comment-stars" >
+            ☆:<%= t.stars %>
+        </div>
       </div>
 	  <% end %>
   </div>
